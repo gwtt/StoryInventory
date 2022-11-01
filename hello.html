@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>商店存货管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="./sdk/helper.css" />
+    <link rel="stylesheet" href="./sdk/iconfont.css" />
+    <link rel="stylesheet" href="./sdk/antd-ie11.css" />
+    <style>
+        html,
+        body,
+        .app-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="app-wrapper"></div>
+    <script src="./sdk/sdk.js"></script>
+    <script type="text/javascript">
+        (function () {
+            let amis = amisRequire('amis/embed');
+            let amisJSON = {
+                type: 'page',
+                title: `<div class="col wrapper-sm bg-info" style = "margin: 0 auto; text-align: center">商店存货管理系统</div>`,
+                body: [
+                  {
+                    type: 'form',
+                    title: '登录页面',
+                    mode: 'horizontal',
+                    redirect: "./index.html",
+                    api: 'http://127.0.0.1:3000/login',
+                    messages: {
+                        saveFailed: "登录失效，请检查邮箱或者密码",
+                    },
+                    body: [{
+                            label: '邮箱',
+                            type: 'input-email',
+                            "placeholder": "请输入邮箱",
+                            name: 'email',
+                        },
+                        {
+                            label: '密码',
+                            type: 'input-password',
+                            "placeholder": "请输入密码",
+                            name: 'password'
+                        }
+                    ],
+                    actions: [
+                    {
+                        "label": "注册",
+                        "type": "button",
+                        "actionType": "dialog",
+                        "level": "primary",
+                        "dialog": {
+                          "title": "注册账户",
+                          "body": {
+                            "type": "form",
+                            "api": "post:http://127.0.0.1:3000/register",
+                            redirect: "./index.html",
+                            "body": [
+                              {
+                                "type": "input-text",
+                                "name": "name",
+                                "label": "姓名"
+                              },
+                              {
+                                "type": "input-email",
+                                "name": "email",
+                                "label": "邮箱"
+                              },
+                              {
+                                "type": "input-password",
+                                "name": "password",
+                                "label": "密码"
+                              },
+                              {
+                                "type": "input-password",
+                                "name": "password_confirm",
+                                "label": "确认密码"
+                              },
+                            ]
+                          }
+                        }
+                      },                    
+                      {
+                        type: "reset",
+                        label: "重置",
+                        "level": "primary"
+                      },
+                      {
+                        type: "submit",
+                        label: "登录",
+                        "level": "primary"
+                      },
+                    ],
+                },
+              ],
+                theme: 'antd'
+            };
+            let amisScoped = amis.embed('#root', amisJSON,{},{theme:"antd"});
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "status": 0,
+  "msg": "",
+  "data": {
+    "pages": [
+      {
+        "label": "Home",
+        "url": "/",
+        "redirect": "./adminuser"
+      },
+      {
+        "children": [
+          {
+            "label": "商品列表",
+            "schemaApi": "jsonp:/pages/adminuser.js?callback=jsonpCallback",
+            "url": "/adminuser"
+          },
+          {
+            "label": "出货列表",
+            "schemaApi": "jsonp:/pages/adminout.js?callback=jsonpCallback",
+            "url": "/adminout"
+          }
+        ]
+      }
+    ]
+  }
+}

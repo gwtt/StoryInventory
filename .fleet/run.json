@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+          "type": "go",
+          "name": "main",
+          "goExecPath": "C:\\Program Files\\Go\\bin\\go.exe",
+          "buildTargets": ["$PROJECT_DIR$/main.go"],
+        },
+
+    ]
+}
